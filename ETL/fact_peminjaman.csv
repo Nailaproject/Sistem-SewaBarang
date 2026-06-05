@@ -1,0 +1,11 @@
+peminjaman_id,tanggal,nama,alamat,no_hp,nama_barang,kategori,metode_pembayaran,harga_sewa_per_hari,jumlah_hari,denda,total_biaya
+1,2026-01-01,Wahyu,Maja,83870842123,Tenda Dome,Outdoor,Cash,50000,3,0,150000
+2,2026-01-01,Adi,Citeras,857654321,Kamera DSLR,Elektronik,Transfer Bank,65000,5,50000,375000
+3,2026-02-15,Finka,Rangkasbitung,877654323,Paket Camping,Paket Bundel,Cash,50000,4,0,200000
+4,2026-02-15,Mila,Kopo,83878406495,Sleeping Bag,Outdoor,QRIS,30000,2,0,60000
+5,2026-03-10,Eka,Citra,81830069921,Tripod,Elektronik,Cash,25000,3,0,75000
+6,2026-03-10,Hadi,Regensi,85302204785,Tenda Dome,Outdoor,Transfer Bank,50000,2,0,100000
+7,2026-04-05,Naila,Tigasara,87756041221,Kamera DSLR,Elektronik,QRIS,65000,2,10000,140000
+8,2026-04-20,Salsa,Rangkasbitung,87888111222,Paket Camping,Paket Bundel,Cash,50000,3,0,150000
+9,2026-05-01,Rina,Citeras,81234567890,Sleeping Bag,Outdoor,Transfer Bank,30000,4,5000,125000
+10,2026-05-15,Dimas,Maja,82345678901,Tripod,Elektronik,QRIS,25000,5,0,125000
