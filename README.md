@@ -1,66 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SISTEM INFORMASI PENYEWAAN BARANG BERBASIS LARAVEL FILAMENT DENGAN IMPLEMENTASI DATA WAREHOUSE DAN SISTEM TERDISTRIBUSI
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deskripsi Proyek
 
-## About Laravel
+Proyek ini merupakan implementasi Sistem Informasi Penyewaan Barang berbasis Laravel Filament yang digunakan untuk mengelola proses penyewaan barang secara online. Sistem mendukung pengelolaan data barang, pelanggan, transaksi penyewaan, pengembalian barang, serta pembuatan laporan transaksi.
+Selain sistem operasional (OLTP), proyek ini juga mengimplementasikan Data Warehouse menggunakan pendekatan Star Schema dan Snowflake Schema untuk kebutuhan analisis data historis. Sistem dilengkapi dengan proses ETL (Extract, Transform, Load) untuk memindahkan data dari sistem operasional ke data warehouse.
+Sebagai bagian dari mata kuliah Sistem Terdistribusi, proyek ini juga mencakup rancangan arsitektur Microservices, komunikasi REST API dan Message Queue, sinkronisasi waktu menggunakan Lamport Logical Clock, serta strategi replikasi data Primary-Backup.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tujuan Proyek
+1. Membangun sistem penyewaan barang berbasis web.
+2. Mengimplementasikan konsep OLTP dan OLAP dalam satu studi kasus.
+3. Mengembangkan Data Warehouse untuk analisis bisnis.
+4. Menerapkan konsep Sistem Terdistribusi pada layanan penyewaan barang.
+5. Mendukung pengambilan keputusan berdasarkan data historis.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Data Warehouse
+* ETL (Extract, Transform, Load)
+* Star Schema
+* Snowflake Schema
+* Slowly Changing Dimension (SCD)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Sistem Terdistribusi
+* Microservices Architecture
+* REST API
+* Message Queue
+* Lamport Logical Clock
+* Primary Backup Replication
 
-## Learning Laravel
+## Fitur Sistem
+### Admin
+* Login Admin
+* Dashboard
+* Manajemen Barang
+* Manajemen Kategori
+* Manajemen Pelanggan
+* Manajemen Penyewaan
+* Pengembalian Barang
+* Monitoring Transaksi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Pelanggan
+* Registrasi dan Login
+* Melihat Daftar Barang
+* Melakukan Penyewaan
+* Melihat Riwayat Transaksi
+* Melihat Kuitansi Penyewaan
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Data Warehouse
+* Analisis Pendapatan per Kategori
+* Analisis Barang Terpopuler
+* Analisis Denda Penyewaan
+* Analisis Transaksi Berdasarkan Waktu
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Struktur Database OLTP
+Tabel utama:
+* barang
+* kategori_barang
+* pelanggan
+* peminjaman
+* pengembalian
+* metode_pembayaran
 
-## Laravel Sponsors
+Database OLTP digunakan untuk menjalankan transaksi harian secara real-time.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Struktur Data Warehouse
 
-### Premium Partners
+### Fact Table
+* fact_peminjaman
+### Dimension Table
+* dim_waktu
+* dim_pelanggan
+* dim_barang
+* dim_kategori_barang
+* dim_metode_pembayaran
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Implementasi ETL
+### Extract
+Mengambil data transaksi penyewaan dari sumber data operasional.
 
-## Contributing
+### Transform
+* Membersihkan data
+* Mengubah format data
+* Menghitung total biaya
+* Membentuk tabel dimensi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Load
+Memasukkan data ke dalam fact table dan dimension table pada data warehouse.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Implementasi Sistem Terdistribusi
 
-## Security Vulnerabilities
+### Arsitektur
+Menggunakan pendekatan Microservices yang terdiri dari:
+* Barang Service
+* Transaksi Service
+* Notification Service
+* Data Warehouse Service
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Komunikasi Antar Service
+* REST API (sinkron)
+* Message Queue (asinkron)
 
-## License
+### Sinkronisasi Waktu
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Menggunakan Lamport Logical Clock untuk menentukan urutan event antar node.
+
+### Replikasi Data
+
+Menggunakan strategi Primary-Backup Replication untuk meningkatkan availability dan fault tolerance.
+
+
+## Hasil Implementasi
+
+Sistem berhasil:
+
+* Menjalankan transaksi penyewaan barang secara online.
+* Mengelola data pelanggan dan barang.
+* Melakukan analisis data historis menggunakan Data Warehouse.
+* Mengimplementasikan konsep Sistem Terdistribusi.
+* Mendukung pengambilan keputusan berbasis data.
+
