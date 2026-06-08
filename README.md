@@ -1,5 +1,5 @@
 # SISTEM INFORMASI PENYEWAAN BARANG BERBASIS LARAVEL FILAMENT DENGAN IMPLEMENTASI DATA WAREHOUSE DAN SISTEM TERDISTRIBUSI
-
+Nama : Naila Sapitri Nim:23010220017
 ## Deskripsi Proyek
 
 Proyek ini merupakan implementasi Sistem Informasi Penyewaan Barang berbasis Laravel Filament yang digunakan untuk mengelola proses penyewaan barang secara online. Sistem mendukung pengelolaan data barang, pelanggan, transaksi penyewaan, pengembalian barang, serta pembuatan laporan transaksi.
